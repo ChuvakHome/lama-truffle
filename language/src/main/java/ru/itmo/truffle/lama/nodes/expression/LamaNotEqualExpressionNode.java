@@ -1,0 +1,35 @@
+package ru.itmo.truffle.lama.nodes.expression;
+
+import com.oracle.truffle.api.CompilerDirectives;
+import com.oracle.truffle.api.frame.VirtualFrame;
+import com.oracle.truffle.api.nodes.NodeInfo;
+
+@NodeInfo(shortName = "!=")
+public class LamaNotEqualExpressionNode extends LamaExpressionBaseNode {
+	@Child 
+	private LamaExpressionBaseNode leftNode;
+    @Child 
+    private LamaExpressionBaseNode rightNode;
+    
+    public LamaNotEqualExpressionNode(LamaExpressionBaseNode leftNode, LamaExpressionBaseNode rightNode) {
+    	this.leftNode = leftNode;
+    	this.rightNode = rightNode;
+    }
+    
+    @Override
+    public Object executeGeneric(VirtualFrame frame) {
+    	Object left = leftNode.executeGeneric(frame);
+    	Object right = rightNode.executeGeneric(frame);
+    	
+    	if (left instanceof Long lv && right instanceof Long rv) {
+    		return computeExact(lv, rv);
+    	}
+    	
+        return executeLong(frame);
+    }
+
+    @CompilerDirectives.TruffleBoundary
+    public Object computeExact(long left, long right) {
+        return left != right ? 1L : 0L;
+    }
+}
