@@ -13,7 +13,7 @@ To build run the following commands in the directory:
 $ mvn package
 ```
 
-To run simple language using a JDK from JAVA_HOME run ./sl.
+To run simple language using a JDK from JAVA_HOME run ./lama.
 
 To build the native image run in the directory
 
