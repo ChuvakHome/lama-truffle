@@ -13,7 +13,7 @@ To build run the following commands in the directory:
 $ mvn package
 ```
 
-To run simple language using a JDK from JAVA_HOME run ./lama.
+To run simple language using a JDK from __JAVA_HOME__ run `./lama`.
 
 To build the native image run in the directory
 
@@ -30,4 +30,5 @@ Interpreter                                 | Time
 :-------------------------------------------|:--------
 Source-level Lama recursive interpreter     | 6m 30s  
 Bytecode-level Lama recursive interpreter   | 1m 56s
+Lama original compiler                      |    23s
 Lama truffle native image                   |    19s
