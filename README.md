@@ -30,5 +30,5 @@ Interpreter                                 | Time
 :-------------------------------------------|:--------
 Source-level Lama recursive interpreter     | 6m 30s  
 Bytecode-level Lama recursive interpreter   | 1m 56s
-Lama original compiler                      |    23s
-Lama truffle native image                   |    19s
+Lama original compiler                      |    19s
+Lama truffle native image                   |    7s
